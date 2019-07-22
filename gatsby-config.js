@@ -5,6 +5,7 @@ module.exports = {
     title: 'Robert Durgin',
     description:
       'Robert Durgin is a Software Developer.',
+    siteUrl: 'http://www.robertdurgin.com'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -74,6 +75,16 @@ module.exports = {
         purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
       },
     }, // must be after other CSS plugins
+    {
+      resolve: 'gatsby-plugin-sitemap'
+    }, 
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+      options: {
+        analyzerPort: 3000,
+        production: true,
+      },
+    },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
   // for avoiding CORS while developing Netlify Functions locally
