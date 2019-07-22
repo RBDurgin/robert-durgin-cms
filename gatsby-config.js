@@ -1,11 +1,11 @@
-var proxy = require('http-proxy-middleware');
+const proxy = require('http-proxy-middleware');
 
 module.exports = {
   siteMetadata: {
     title: 'Robert Durgin',
     description:
       'Robert Durgin is a Software Developer.',
-    siteUrl: 'http://www.robertdurgin.com'
+    siteUrl: 'http://www.robertdurgin.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -76,8 +76,8 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     {
-      resolve: 'gatsby-plugin-sitemap'
-    }, 
+      resolve: 'gatsby-plugin-sitemap',
+    },
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
@@ -85,11 +85,23 @@ module.exports = {
         production: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        stages: ['develop'],
+        exclude: /(node_modules|.cache|public)/,
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
+      },
+    },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-  developMiddleware: app => {
+  developMiddleware: (app) => {
     app.use(
       '/.netlify/functions/',
       proxy({
@@ -97,7 +109,7 @@ module.exports = {
         pathRewrite: {
           '/.netlify/functions/': '',
         },
-      })
-    )
+      }),
+    );
   },
 };

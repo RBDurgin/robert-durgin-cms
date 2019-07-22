@@ -6,34 +6,37 @@ import logo from '../img/logo.svg';
 
 const Navbar = class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       active: false,
       navBarActiveClass: '',
-    }
+    };
   }
 
-  toggleHamburger = () => {
+  toggleHamburger() {
+    const { isActive } = this.state;
     // toggle the active boolean in the state
     this.setState(
       {
-        active: !this.state.active,
+        active: !isActive,
       },
       // after state has been updated,
-      () => {
+      () => (
         // set the class in state for the navbar accordingly
-        this.state.active
+        isActive
           ? this.setState({
             navBarActiveClass: 'is-active',
           })
           : this.setState({
             navBarActiveClass: '',
           })
-      }
-    )
+      ),
+    );
   }
 
   render() {
+    const { navBarActiveClass } = this.state;
+
     return (
       <nav
         className="navbar is-transparent"
@@ -47,7 +50,8 @@ const Navbar = class extends React.Component {
             </Link>
             {/* Hamburger menu */}
             <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+              role="button"
+              className={`navbar-burger burger ${navBarActiveClass}`}
               data-target="navMenu"
               onClick={() => this.toggleHamburger()}
             >
@@ -58,7 +62,7 @@ const Navbar = class extends React.Component {
           </div>
           <div
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`navbar-menu ${navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
               <Link className="navbar-item" to="/about">
@@ -82,21 +86,23 @@ const Navbar = class extends React.Component {
                   <FontAwesomeIcon icon={faGithub} color="black" />
                 </span>
               </a>
-              <a title="stack-overflow" 
-                 className="navbar-item"
-                 href="https://stackoverflow.com/users/3132/robert-durgin" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
+              <a
+                title="stack-overflow"
+                className="navbar-item"
+                href="https://stackoverflow.com/users/3132/robert-durgin"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faStackOverflow} color="black" />
                 </span>
               </a>
-              <a title="linkedin" 
-                 className="navbar-item"
-                 href="https://www.linkedin.com/in/robert.durgin" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
+              <a
+                title="linkedin"
+                className="navbar-item"
+                href="https://www.linkedin.com/in/robert.durgin"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faLinkedin} color="black" />
@@ -106,7 +112,7 @@ const Navbar = class extends React.Component {
           </div>
         </div>
       </nav>
-    )
+    );
   }
 };
 

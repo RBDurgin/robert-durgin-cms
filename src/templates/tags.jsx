@@ -1,9 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 
-const TagRoute = ({ data, pageContext }) => {  
+const TagRoute = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug}>
@@ -12,12 +13,10 @@ const TagRoute = ({ data, pageContext }) => {
       </Link>
     </li>
   ));
-  const tag = pageContext.tag;
-  const title = data.site.siteMetadata.title;
-  const totalCount = data.allMarkdownRemark.totalCount;
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
-  } tagged with “${tag}”`;
+  const { tag } = pageContext;
+  const { title } = data.site.siteMetadata;
+  const { totalCount } = data.allMarkdownRemark;
+  const tagHeader = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with “${tag}”`;
 
   return (
     <Layout>
@@ -25,10 +24,7 @@ const TagRoute = ({ data, pageContext }) => {
         <Helmet title={`${tag} | ${title}`} />
         <div className="container content">
           <div className="columns">
-            <div
-              className="column is-10 is-offset-1"
-              style={{ marginBottom: '6rem' }}
-            >
+            <div className="column is-10 is-offset-1" style={{ marginBottom: '6rem' }}>
               <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
               <ul className="taglist">{postLinks}</ul>
               <p>
@@ -40,6 +36,23 @@ const TagRoute = ({ data, pageContext }) => {
       </section>
     </Layout>
   );
+};
+
+TagRoute.propTypes = {
+  data: PropTypes.object,
+  pageContext: PropTypes.object,
+};
+
+TagRoute.defaultProps = {
+  data: {
+    site: {},
+    allMarkdownRemark: {
+      totalCount: 0,
+    },
+  },
+  pageContext: {
+    tag: '',
+  },
 };
 
 export default TagRoute;

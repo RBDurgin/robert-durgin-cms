@@ -33,8 +33,12 @@ Pricing.propTypes = {
       price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       description: PropTypes.string,
       items: PropTypes.array,
-    })
+    }),
   ),
+};
+
+Pricing.defaultProps = {
+  data: {},
 };
 
 export default Pricing;

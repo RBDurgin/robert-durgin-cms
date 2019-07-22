@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { IndexPageTemplate } from '../../templates/index-page';
 
 const IndexPagePreview = ({ entry, getAsset }) => {
-  const data = entry.getIn(['data']).toJS()
+  const data = entry.getIn(['data']).toJS();
 
   if (data) {
     return (
@@ -17,9 +17,9 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         mainpitch={data.mainpitch || {}}
       />
     );
-  } else {
-    return <div>Loading...</div>;
   }
+
+  return (<div>Loading...</div>);
 }
 
 IndexPagePreview.propTypes = {
@@ -27,6 +27,11 @@ IndexPagePreview.propTypes = {
     getIn: PropTypes.func,
   }),
   getAsset: PropTypes.func,
+};
+
+IndexPagePreview.defaultProps = {
+  entry: null,
+  getAsset: null,
 };
 
 export default IndexPagePreview;

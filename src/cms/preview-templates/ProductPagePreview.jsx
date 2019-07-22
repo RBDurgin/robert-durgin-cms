@@ -53,4 +53,9 @@ ProductPagePreview.propTypes = {
   getAsset: PropTypes.func,
 };
 
+ProductPagePreview.defaultProps = {
+  entry: null,
+  getAsset: null,
+};
+
 export default ProductPagePreview;
