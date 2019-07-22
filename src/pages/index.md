@@ -1,9 +1,9 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
-image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+title: Robert Durgin
+image: /img/iStock-478536966_M.jpg
+heading: Heading 
+subheading: Subheading
 mainpitch:
   title: Why Kaldi
   description: >
