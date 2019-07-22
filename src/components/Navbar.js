@@ -24,11 +24,11 @@ const Navbar = class extends React.Component {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
+            navBarActiveClass: 'is-active',
+          })
           : this.setState({
-              navBarActiveClass: '',
-            })
+            navBarActiveClass: '',
+          })
       }
     )
   }
@@ -77,6 +77,26 @@ const Navbar = class extends React.Component {
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faGithub} color="black" />
+                </span>
+              </a>
+              <a title="stack-overflow" 
+                 className="navbar-item"
+                 href="https://stackoverflow.com/users/3132/robert-durgin" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <FontAwesomeIcon icon={faStackOverflow} color="black" />
+                </span>
+              </a>
+              <a title="linkedin" 
+                 className="navbar-item"
+                 href="https://www.linkedin.com/in/robert.durgin" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <FontAwesomeIcon icon={faLinkedin} color="black" />
                 </span>
               </a>
             </div>
