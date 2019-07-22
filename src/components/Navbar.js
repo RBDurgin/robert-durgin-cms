@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faStackOverflow, faGithub } from '@fortawesome/free-brands-svg-icons'
-import logo from '../img/logo.svg'
+import { faLinkedin, faStackOverflow, faGithub } from '@fortawesome/free-brands-svg-icons';
+import logo from '../img/logo.svg';
 
 const Navbar = class extends React.Component {
   constructor(props) {

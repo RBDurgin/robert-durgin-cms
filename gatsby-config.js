@@ -1,4 +1,4 @@
-var proxy = require('http-proxy-middleware')
+var proxy = require('http-proxy-middleware');
 
 module.exports = {
   siteMetadata: {
@@ -37,12 +37,12 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'uploads',
-            },
-          },
+          // {
+          //   resolve: 'gatsby-remark-relative-images',
+          //   options: {
+          //     name: 'uploads',
+          //   },
+          // },
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -89,4 +89,4 @@ module.exports = {
       })
     )
   },
-}
+};

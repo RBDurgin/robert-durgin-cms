@@ -1,7 +1,7 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { Link, graphql } from 'gatsby';
+import Layout from '../components/Layout';
 
 class TagRoute extends React.Component {
   render() {
@@ -42,9 +42,9 @@ class TagRoute extends React.Component {
       </Layout>
     )
   }
-}
+};
 
-export default TagRoute
+export default TagRoute;
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
@@ -71,4 +71,4 @@ export const tagPageQuery = graphql`
       }
     }
   }
-`
+`;
