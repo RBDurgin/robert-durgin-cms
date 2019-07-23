@@ -6,6 +6,82 @@ import Layout from '../components/Layout';
 import Features from '../components/Features';
 import BlogRoll from '../components/BlogRoll';
 
+const Title = ({ title = null }) => (title ? (
+  <h1
+    className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+    style={{
+      boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+      backgroundColor: 'rgb(255, 68, 0)',
+      color: 'white',
+      lineHeight: '1',
+      padding: '0.25em',
+    }}
+  >
+    {title}
+  </h1>
+) : (
+  <></>
+));
+
+Title.propTypes = {
+  title: PropTypes.string,
+};
+
+Title.defaultProps = {
+  title: null,
+};
+
+const Subheading = ({ subheading = null }) => (subheading ? (
+  <h3
+    className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+    style={{
+      boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+      backgroundColor: 'rgb(255, 68, 0)',
+      color: 'white',
+      lineHeight: '1',
+      padding: '0.25em',
+    }}
+  >
+    {subheading}
+  </h3>
+) : (
+  <></>
+));
+
+Subheading.propTypes = {
+  subheading: PropTypes.string,
+};
+
+Subheading.defaultProps = {
+  subheading: null,
+};
+
+const MainPitch = ({ mainpitch }) => (
+  mainpitch
+    ? (
+      <div className="content">
+        <div className="tile">
+          <h1 className="title">{mainpitch.title}</h1>
+        </div>
+        <div className="tile">
+          <h3 className="subtitle">{mainpitch.description}</h3>
+        </div>
+      </div>
+    )
+    : <></>
+);
+
+MainPitch.propTypes = {
+  mainpitch: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }),
+};
+
+MainPitch.defaultProps = {
+  mainpitch: null,
+};
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -19,9 +95,7 @@ export const IndexPageTemplate = ({
     <div
       className="full-width-image margin-top-0"
       style={{
-        backgroundImage: `url(${
-          image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
+        backgroundImage: `url(${image.childImageSharp ? image.childImageSharp.fluid.src : image})`,
         backgroundPosition: 'top left',
         backgroundAttachment: 'fixed',
       }}
@@ -36,32 +110,8 @@ export const IndexPageTemplate = ({
           flexDirection: 'column',
         }}
       >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
+        <Title title={title} />
+        <Subheading subheading={subheading} />
       </div>
     </div>
     <section className="section section--gradient">
@@ -70,27 +120,16 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch && mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch && mainpitch.description}</h3>
-                  </div>
-                </div>
+                <MainPitch mainpitch={mainpitch} />
                 <div className="columns">
                   <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
+                    <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
                     <p>{description}</p>
                   </div>
                 </div>
                 <Features gridItems={intro.blurbs} />
                 <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
+                  <h3 className="has-text-weight-semibold is-size-2">Latest stories</h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
@@ -184,16 +223,6 @@ export const pageQuery = graphql`
         }
         description
         intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
           heading
           description
         }

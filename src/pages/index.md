@@ -3,10 +3,10 @@ templateKey: index-page
 title: Robert Durgin
 image: /img/iStock-478536966_M.jpg
 heading: Hi, I'm Bob! I do computers! 
-subheading: subheading
-mainpitch:
-  title: title
-  description: description
+subheading:
+# mainpitch:
+#   title: title
+#   description: description
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
   java’s origin and support the farmers that grew it. We take coffee production,
@@ -18,7 +18,7 @@ intro:
     Kaldi is the ultimate spot for coffee lovers who want to learn about their
     java’s origin and support the farmers that grew it. We take coffee
     production, roasting and brewing seriously and we’re glad to pass that
-    knowledge to anyone. This is an edit via identity...
+    knowledge to anyone. This is an edit via identity...    
 main:
   heading: Great coffee with no compromises
   description: >
