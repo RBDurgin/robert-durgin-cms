@@ -9,12 +9,12 @@ import useSiteMetadata from './SiteMetadata';
 const TemplateWrapper = ({ children }) => {
   const { title, description, adSenseClient } = useSiteMetadata();
 
-  const adSense = adSenseClient && (`
+  const adSense = adSenseClient
+    && `
             (adsbygoogle = window.adsbygoogle || []).push({
               google_ad_client: '${adSenseClient}',
               enable_page_level_ads: true
-            });`);
-            console.log('adSense: ', adSense);
+            });`;
   return (
     <div>
       <Helmet>
@@ -35,10 +35,8 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script type="text/javascript">
-          {adSense}
-        </script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+        <script type="text/javascript">{adSense}</script>
       </Helmet>
       <Navbar />
       <div>{children}</div>
@@ -48,10 +46,7 @@ const TemplateWrapper = ({ children }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
 TemplateWrapper.defaultProps = {
