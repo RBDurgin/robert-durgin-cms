@@ -37,7 +37,12 @@ const TagsPage = ({
 );
 
 TagsPage.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.object,
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.object,
+    }),
+  }),
 };
 
 TagsPage.defaultProps = {

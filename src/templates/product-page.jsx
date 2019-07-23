@@ -113,7 +113,7 @@ ProductPageTemplate.propTypes = {
     image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
-  testimonials: PropTypes.array,
+  testimonials: PropTypes.arrayOf(PropTypes.object),
   fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   pricing: PropTypes.shape({
     heading: PropTypes.string,
@@ -122,7 +122,17 @@ ProductPageTemplate.propTypes = {
   }),
 };
 
-ProductPageTemplate.defaultProps = {};
+ProductPageTemplate.defaultProps = {
+  image: null,
+  title: null,
+  heading: null,
+  description: null,
+  intro: {},
+  main: {},
+  testimonials: [],
+  fullImage: null,
+  pricing: null,
+};
 
 const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;

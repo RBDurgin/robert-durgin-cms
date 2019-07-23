@@ -39,8 +39,12 @@ const TagRoute = ({ data, pageContext }) => {
 };
 
 TagRoute.propTypes = {
-  data: PropTypes.object,
-  pageContext: PropTypes.object,
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.string,
+  }),
+  pageContext: PropTypes.shape({
+    tag: PropTypes.string,
+  }),
 };
 
 TagRoute.defaultProps = {

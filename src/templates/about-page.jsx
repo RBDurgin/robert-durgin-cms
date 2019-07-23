@@ -34,14 +34,13 @@ AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
-  helmet: PropTypes.object,
+  helmet: PropTypes.node,
 };
 
 AboutPageTemplate.defaultProps = {
   helmet: null,
   content: null,
   contentComponent: null,
-  helmet: null,
 };
 
 const AboutPage = ({ data }) => {
@@ -70,7 +69,9 @@ const AboutPage = ({ data }) => {
 };
 
 AboutPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }).isRequired,
 };
 
 export default AboutPage;

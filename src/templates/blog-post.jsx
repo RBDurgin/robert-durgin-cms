@@ -49,8 +49,8 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object,
-  tags: PropTypes.array,
+  helmet: PropTypes.node,
+  tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 BlogPostTemplate.defaultProps = {
@@ -87,6 +87,10 @@ BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
+};
+
+BlogPost.defaultProps = {
+  data: {},
 };
 
 export default BlogPost;

@@ -38,7 +38,10 @@ const TemplateWrapper = ({ children }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 };
 
 TemplateWrapper.defaultProps = {

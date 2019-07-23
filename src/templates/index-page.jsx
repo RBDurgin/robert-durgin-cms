@@ -20,7 +20,7 @@ export const IndexPageTemplate = ({
       className="full-width-image margin-top-0"
       style={{
         backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+          image.childImageSharp ? image.childImageSharp.fluid.src : image
         })`,
         backgroundPosition: 'top left',
         backgroundAttachment: 'fixed',
@@ -112,7 +112,10 @@ IndexPageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
+  mainpitch: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }),
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array,

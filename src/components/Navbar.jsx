@@ -100,7 +100,7 @@ const Navbar = class extends React.Component {
               <a
                 title="linkedin"
                 className="navbar-item"
-                href="https://www.linkedin.com/in/robert.durgin"
+                href="https://www.linkedin.com/in/RBDurgin"
                 target="_blank"
                 rel="noopener noreferrer"
               >

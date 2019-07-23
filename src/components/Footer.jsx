@@ -23,7 +23,7 @@ const SocialLinks = () => (
     </a>
     <a
       title="linkedin"
-      href="https://www.linkedin.com/in/robert.durgin"
+      href="https://www.linkedin.com/in/RBDurgin"
       target="_blank"
       rel="noopener noreferrer"
     >
