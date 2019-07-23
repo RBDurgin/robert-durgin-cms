@@ -6,6 +6,7 @@ module.exports = {
     description:
       'Robert Durgin is a Software Developer.',
     siteUrl: 'http://www.robertdurgin.com',
+    adSenseClient: 'ca-pub-8509683918926244',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
