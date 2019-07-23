@@ -41,6 +41,11 @@ const TagRoute = ({ data, pageContext }) => {
 TagRoute.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.string,
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+      }),
+    }),
   }),
   pageContext: PropTypes.shape({
     tag: PropTypes.string,

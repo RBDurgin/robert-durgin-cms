@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faStackOverflow, faGithub } from '@fortawesome/free-brands-svg-icons';
-import logo from '../img/logo.svg';
 
 const SocialLinks = () => (
   <div className="column is-4 social">
@@ -52,7 +51,7 @@ const Footer = () => (
                   <Link className="navbar-item" to="/about">
                     About
                   </Link>
-                </li>                
+                </li>
               </ul>
             </section>
           </div>
