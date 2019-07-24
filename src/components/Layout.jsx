@@ -5,18 +5,15 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import './all.sass';
 import useSiteMetadata from './SiteMetadata';
+import GoogleAnalytics from './GoogleAnalytics';
+import GoogleAdSense from './GoogleAdSense';
 
 const TemplateWrapper = ({ children }) => {
-  const { title, description, adSenseClient } = useSiteMetadata();
+  const { title, description, adSenseClient, gaTrackingId } = useSiteMetadata();
 
-  const adSense = adSenseClient
-    && `
-            (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: '${adSenseClient}',
-              enable_page_level_ads: true
-            });`;
   return (
     <div>
+      <GoogleAnalytics trackingId={gaTrackingId} />
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -35,9 +32,8 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
-        <script type="text/javascript">{adSense}</script>
       </Helmet>
+      <GoogleAdSense adSenseClient={adSenseClient} />
       <Navbar />
       <div>{children}</div>
       <Footer />

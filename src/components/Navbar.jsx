@@ -63,6 +63,9 @@ const Navbar = () => {
             <Link className="navbar-item" to="/tags">
               Topics
             </Link>
+            <Link className="navbar-item" to="/">
+              Skills
+            </Link>
           </div>
           <div className="navbar-end has-text-centered">
             <a
