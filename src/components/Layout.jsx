@@ -9,7 +9,9 @@ import GoogleAnalytics from './GoogleAnalytics';
 import GoogleAdSense from './GoogleAdSense';
 
 const TemplateWrapper = ({ children }) => {
-  const { title, description, adSenseClient, gaTrackingId } = useSiteMetadata();
+  const {
+    title, description, adSenseClient, gaTrackingId,
+  } = useSiteMetadata();
 
   return (
     <div>
