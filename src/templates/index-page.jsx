@@ -215,7 +215,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading        
+        heading
         description
         intro {
           heading
