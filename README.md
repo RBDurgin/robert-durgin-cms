@@ -1,10 +1,8 @@
-# robertdurgin.com. Based on Gatsby + Netlify CMS Starter
+# robertdurgin.com. [Based on Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c3bda09b-704d-46dc-99e6-a4de742b124d/deploy-status)](https://app.netlify.com/sites/robert-durgin/deploys)
 
 **Note:** This starter uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
-
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://gatsby-netlify-cms.netlify.com/)**.
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
