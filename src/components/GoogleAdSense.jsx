@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 
 const GoogleAdSense = ({ adSenseClient }) => (
   <>
-    adSenseClient && (
+    {adSenseClient && (
     <Helmet>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
       <script type="text/javascript">
@@ -13,8 +13,7 @@ const GoogleAdSense = ({ adSenseClient }) => (
             enable_page_level_ads: true
         });`}
       </script>
-    </Helmet>
-    )
+    </Helmet>)}    
   </>
 );
 
