@@ -5,6 +5,8 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Features from '../components/Features';
 import BlogRoll from '../components/BlogRoll';
+import { PageTemplateType, PageTemplateDefaultProps } from '../types/page-template-type';
+import { PageType, PageTypeDefaultProps } from '../types/page-type';
 
 const Title = ({ title = null }) => (title ? (
   <h1
@@ -147,28 +149,26 @@ export const IndexPageTemplate = ({
 );
 
 IndexPageTemplate.propTypes = {
+  ...PageTemplateType,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
   }),
-  description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
 };
 
 IndexPageTemplate.defaultProps = {
+  ...PageTemplateDefaultProps,
   image: null,
-  title: null,
   heading: null,
   subheading: null,
   intro: [],
   mainpitch: null,
-  description: null,
 };
 
 const IndexPage = ({ data }) => {
@@ -189,17 +189,8 @@ const IndexPage = ({ data }) => {
   );
 };
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-};
-
-IndexPage.defaultProps = {
-  data: {},
-};
+IndexPage.propTypes = PageType;
+IndexPage.defaultProps = PageTypeDefaultProps;
 
 export default IndexPage;
 

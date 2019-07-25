@@ -5,15 +5,16 @@ import { Helmet } from 'react-helmet';
 const GoogleAdSense = ({ adSenseClient }) => (
   <>
     {adSenseClient && (
-    <Helmet>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
-      <script type="text/javascript">
-        {`(adsbygoogle = window.adsbygoogle || []).push({
+      <Helmet>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+        <script type="text/javascript">
+          {`(adsbygoogle = window.adsbygoogle || []).push({
             google_ad_client: '${adSenseClient}',
             enable_page_level_ads: true
         });`}
-      </script>
-    </Helmet>)}    
+        </script>
+      </Helmet>
+    )}
   </>
 );
 

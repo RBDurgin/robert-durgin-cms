@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import useSiteMetadata from '../components/SiteMetadata';
+import { PageTemplateType, PageTemplateDefaultProps } from '../types/page-template-type';
 
 export const AboutPageTemplate = ({
   title, content, contentComponent, helmet,
@@ -18,9 +19,7 @@ export const AboutPageTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
+              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h2>
               <PageContent className="content" content={content} />
             </div>
           </div>
@@ -31,14 +30,13 @@ export const AboutPageTemplate = ({
 };
 
 AboutPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
+  ...PageTemplateType,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
-  helmet: PropTypes.node,
 };
 
 AboutPageTemplate.defaultProps = {
-  helmet: null,
+  ...PageTemplateDefaultProps,
   content: null,
   contentComponent: null,
 };

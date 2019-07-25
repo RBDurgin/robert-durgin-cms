@@ -5,6 +5,8 @@ import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
+import { PageTemplateType, PageTemplateDefaultProps } from '../types/page-template-type';
+import { PageType, PageTypeDefaultProps } from '../types/page-type';
 
 export const BlogPostTemplate = ({
   content,
@@ -45,19 +47,15 @@ export const BlogPostTemplate = ({
 };
 
 BlogPostTemplate.propTypes = {
+  ...PageTemplateType,
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.node,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 BlogPostTemplate.defaultProps = {
+  ...PageTemplateDefaultProps,
   contentComponent: null,
-  description: null,
-  title: null,
-  helmet: null,
   tags: [],
 };
 
@@ -83,15 +81,8 @@ const BlogPost = ({ data }) => {
   );
 };
 
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-};
-
-BlogPost.defaultProps = {
-  data: {},
-};
+BlogPost.propTypes = PageType;
+BlogPost.defaultProps = PageTypeDefaultProps;
 
 export default BlogPost;
 
