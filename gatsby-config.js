@@ -8,6 +8,9 @@ module.exports = {
     siteUrl: 'http://www.robertdurgin.com',
     adSenseClient: 'ca-pub-8509683918926244',
     gaTrackingId: 'UA-5904475-1',
+    linkedInUrl: 'https://www.linkedin.com/in/RBDurgin',
+    githubUrl: 'https://github.com/RBDurgin',
+    stackOverflowUrl: 'https://stackoverflow.com/users/3132/robert-durgin',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -40,12 +43,12 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          // {
-          //   resolve: 'gatsby-remark-relative-images',
-          //   options: {
-          //     name: 'uploads',
-          //   },
-          // },
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              name: 'uploads',
+            },
+          },
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -97,6 +100,12 @@ module.exports = {
           emitWarning: true,
           failOnError: false,
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-draft',
+      options: {
+        publishDraft: process.env.NODE_ENV !== 'production',
       },
     },
     'gatsby-plugin-netlify', // make sure to keep it last in the array

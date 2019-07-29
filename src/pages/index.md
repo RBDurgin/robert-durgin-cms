@@ -3,6 +3,7 @@ templateKey: index-page
 title: Robert Durgin
 image: /img/iStock-478536966_M.jpg
 heading: Hi, I'm Bob! I do computers! 
+draft: false
 subheading:
 # mainpitch:
 #   title: title

@@ -61,6 +61,9 @@ BlogPostTemplate.defaultProps = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
+  const ogArticleTags = post.frontmatter.tags.map(tag => (
+    <meta property="aritcle:tag" content={tag} key={`og_article_tag_${tag}`} />
+  ));
 
   return (
     <Layout>
@@ -72,6 +75,8 @@ const BlogPost = ({ data }) => {
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
             <meta name="description" content={`${post.frontmatter.description}`} />
+            <meta property="og:type" content="article" />
+            {ogArticleTags}
           </Helmet>
 )}
         tags={post.frontmatter.tags}

@@ -2,6 +2,7 @@
 templateKey: 'about-page'
 path: /about
 title: About
+draft: false
 ---
 Hi! I'm Bob! I do computers!
 
